@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class GooglebenchmarkConan(ConanFile):
     name = "google-benchmark"
-    version = "4c2af07-dm2"
+    version = "7d03f2d-dm2"
     license = "https://github.com/google/benchmark/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of Googlebenchmark here>"
@@ -15,7 +15,7 @@ class GooglebenchmarkConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/google/benchmark.git")
-        self.run("cd benchmark && git checkout 4c2af07 && cd ..")
+        self.run("cd benchmark && git checkout 7d03f2d && cd ..")
         # This small hack might be useful to guarantee proper /MT /MD linkage in MSVC
         # if the packaged project doesn't have variables to set it properly
         tools.replace_in_file("benchmark/CMakeLists.txt", "project (benchmark)", '''project (benchmark)
