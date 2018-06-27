@@ -27,6 +27,7 @@ conan_basic_setup()''')
         if tools.os_info.is_windows:
             cmake.definitions["BENCHMARK_ENABLE_GTEST_TESTS"] = "OFF"
             cmake.definitions["BENCHMARK_ENABLE_TESTING"] = "OFF"
+            cmake.definitions["BUILD_SHARED_LIBS"] = "FALSE"
         cmake.configure(source_dir="%s/benchmark" % self.source_folder)
         cmake.build()
 
