@@ -7,10 +7,10 @@ conan_basic_setup()
 add_executable(example example.cpp)
 
 if(WIN32)
-    set(CONAN_LIBS "${CONAN_LIBS} shlwapi.lib")
+    target_link_libraries(example ${CONAN_LIBS} shlwapi.lib)
+else()
+    target_link_libraries(example ${CONAN_LIBS} )
 endif(WIN32)
-
-target_link_libraries(example ${CONAN_LIBS} )
 
 # CTest is a testing tool that can be used to test your project.
 # enable_testing()
