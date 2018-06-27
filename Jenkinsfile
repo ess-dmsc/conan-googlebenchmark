@@ -221,7 +221,7 @@ def get_win10_pipeline() {
           bat """C:\\Users\\dmgroup\\AppData\\Local\\Programs\\Python\\Python36\\Scripts\\conan.exe \
             create . ${conan_user}/${conan_pkg_channel} \
             --settings google-benchmark:build_type=Release \
-            --options google-benchmark:shared=True \
+            --options google-benchmark:shared=False \
             --build=outdated"""
         }  // stage
 
