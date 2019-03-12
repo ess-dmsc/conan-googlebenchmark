@@ -10,8 +10,8 @@ class GooglebenchmarkConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    generators = "cmake"
-    requires = ("gtest/1.8.1-dm1@ess-dmsc/stable", "cmake_installer/3.10.0@conan/stable")
+    generators = ("cmake", "virtualrunenv")
+    requires = ("gtest/3121b20-dm3@ess-dmsc/stable", "cmake_installer/3.10.0@conan/stable")
 
     def source(self):
         self.run("git clone https://github.com/google/benchmark.git")
