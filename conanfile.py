@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class GooglebenchmarkConan(ConanFile):
     name = "google-benchmark"
-    version = "1.4.1-dm1"
+    version = "1.4.1-dm2"
     license = "https://github.com/google/benchmark/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of Googlebenchmark here>"
