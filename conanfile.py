@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class GooglebenchmarkConan(ConanFile):
     name = "google-benchmark"
-    version = "1.4.1-dm2"
+    version = "1.4.1-dm3"
     license = "https://github.com/google/benchmark/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of Googlebenchmark here>"
@@ -11,7 +11,7 @@ class GooglebenchmarkConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
     generators = ("cmake", "virtualrunenv")
-    requires = ("gtest/3121b20-dm3@ess-dmsc/stable", "cmake_installer/3.10.0@conan/stable")
+    requires = ("gtest/1.8.1@bincrafters/stable")
 
     def source(self):
         self.run("git clone https://github.com/google/benchmark.git")
