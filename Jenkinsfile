@@ -24,7 +24,7 @@ builders = packageBuilder.createPackageBuilders { container ->
 
 node {
   checkout scm
-  
+
   builders['macOS'] = get_macos_pipeline()
   builders['windows10'] = get_win10_pipeline()
   parallel builders
@@ -62,19 +62,6 @@ def get_macos_pipeline() {
             --settings google-benchmark:build_type=Release \
             --options google-benchmark:shared=False \
             --build=outdated"
-
-          pkg_name_and_version = sh(
-            script: "./get_conan_pkg_name_and_version.sh",
-            returnStdout: true
-          ).trim()
-        }  // stage
-
-        stage("macOS: Upload") {
-          sh "conan upload \
-            --all \
-            ${conan_upload_flag} \
-            --remote ${conan_remote} \
-            ${pkg_name_and_version}@${conan_user}/${conan_pkg_channel}"
         }  // stage
       }  // dir
     }  // node
@@ -113,15 +100,8 @@ def get_win10_pipeline() {
             --options google-benchmark:shared=False \
             --build=outdated"""
         }  // stage
-
-        stage("win10: Upload") {
-          //sh "upload_conan_package.sh conanfile.py \
-          //  ${conan_remote} \
-           // ${conan_user} \
-           // ${conan_pkg_channel}"
-        }  // stage
       }  // dir
-      }
+      }  // ws
     }  // node
   }  // return
 } // def
